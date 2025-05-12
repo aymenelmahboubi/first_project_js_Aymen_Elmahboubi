@@ -39,6 +39,13 @@ function validemail(email) {
     return true;
 }
 
+function validpassword(password) {
+    if (password.includes(" ")) return false;
+    if (password.length < 7) return false;
+    if (!/[@#\-+*/]/.test(password)) return false;
+    return true
+}
+
 
 let data_user = [];
 
@@ -66,8 +73,21 @@ let email = prompt("enter valid Email").trim().toLocaleLowerCase()
     }
     let age = parseInt(prompt("how old are you?").trim());
     if (!validage(age)) {
-        alert("invalid age. Must be a number with less than 3 digits.");
+        alert("invalid age. Must be a number with less than 3 digits and more then 18");
         return
+    
+    }
+
+     let password = prompt("Enter Password").trim()
+    if (!validpassword(password)) {
+        alert("Invalid password. Must be 7+ characters with one special symbol (@, #, -, +, *, /)")
+        return;
+    }
+    let confirm_password = prompt("Confirm your Password").trim();
+    if (password !== confirm_password) {
+        alert("password incorrect, try again")
+        sign_up();
+        return;
     }
    
 
@@ -76,7 +96,7 @@ let email = prompt("enter valid Email").trim().toLocaleLowerCase()
 
 let user_function = ""
 while (user_function !== "4") {
-    user_function = prompt("mar7ba biike systeme ga3ma tay7e   \n 1 - sign up \n 2 - login \n 3 - change password \n 4 - exit");
+    user_function = prompt("mar7ba biike systéme ga3ma tay7e   \n 1 - sign up \n 2 - login \n 3 - change password \n 4 - exit");
     if (user_function === null) {
         
     }
