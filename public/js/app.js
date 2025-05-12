@@ -178,6 +178,18 @@ function deposit(user) {
 
 
 
+// withdraw 
+function withdraw(user) {
+    let askmoney = parseInt(prompt(`how much money you want`));
+    if (askmoney <= bankbalance) {
+        user.moneybalance += askmoney;
+        bankbalance = bankbalance - askmoney;
+        user.history.push(user.name + " withdraw " + askmoney + " DH");
+        alert(user.name + " withdraw " + askmoney + " DH from the bank");
+    } else {
+        alert("no balance in the bank");
+    }
+}
 
 
 function menu(user) {
@@ -190,8 +202,16 @@ function menu(user) {
 
         if (menubank === "1") {
             deposit(user);
-            }
-            }
+       } else if (menubank === "2") {
+            Withdraw(user);
+        } else if (menubank === "3") {
+            Historie(user);
+        } else if (menubank === "4") {
+            alert("logout successfully");
+        } else {
+            alert("enter the information");
+        }
+    }
 }
 
 
