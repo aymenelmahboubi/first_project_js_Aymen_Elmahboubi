@@ -161,3 +161,49 @@ function change_password() {
 }
 
 
+
+// depo
+function deposit(user) {
+    let askmoney = parseInt(prompt(`how much you want to deposite`));
+    if (askmoney <= 1000) {
+        user.moneybalance -= askmoney;
+        bankbalance = askmoney + bankbalance;
+        user.history.push("deposit " + askmoney);
+        alert(user.name + " deposited " + askmoney + " DH to the bank");
+    } else {
+        alert(`the max is 1000 dh`);
+    }
+}
+
+
+
+
+
+
+function menu(user) {
+    let menubank = "";
+    while (menubank !== "4") {
+        menubank = prompt("What do you want to do in the bank:\n1 - Deposit\n2 - Withdraw\n3 - Historie\n4 - Logout");
+        if (menubank === null) {
+            continue;
+        }
+
+        if (menubank === "1") {
+            deposit(user);
+            }
+            }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
