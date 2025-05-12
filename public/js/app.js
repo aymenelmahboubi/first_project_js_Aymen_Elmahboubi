@@ -196,6 +196,17 @@ function withdraw(user) {
     }
 }
 
+// function invest(user) {
+//     let amount = something(prompt("enter amount to invest"))
+//     if (amount > 0 && amount <= user.moneybalance) {
+//         user.moneybalance -= amount
+//         user.investment = amount
+//         user.history.push("invested: -" + amount + " DH");
+//         alert("investment started. You will earn 20% each login")
+//     } else {
+//         alert("invalid investment amount")
+//     }
+// }
 
 function menu(user) {
     let menubank = "";
