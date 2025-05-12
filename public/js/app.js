@@ -16,12 +16,37 @@ function validname(name) {
     return true;
 }
 
+
+
+let data_user = [];
+
+class User {
+    constructor(name, email, age, password) {
+        this.name = name;
+        this.email = email;
+        this.age = age;
+        this.password = password;
+        this.moneybalance = 1000;
+        this.history = [];
+    }
+}
+
 function sign_up() {
-    let name = prompt("Enter your Name").toLocaleLowerCase().trim();
+    let name = prompt("enter your Name").toLocaleLowerCase().trim();
     if (!validname(name)) {
         alert("invalid name, the name should > 5 character & no number and no symbol");
         return;
     }
+let email = prompt("enter valid Email").trim().toLocaleLowerCase()
+    if (!isValidEmail(email)) {
+        alert("invalid email. Make sure it's correct and not already used.");
+        return;
+    }
+
+
 
 }
+  
+
+
 
