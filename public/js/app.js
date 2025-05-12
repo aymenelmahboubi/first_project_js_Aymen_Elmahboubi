@@ -48,7 +48,7 @@ function validpassword(password) {
 
 
 let data_user = [];
-
+let bankbalance = 0
 class User {
     constructor(name, email, age, password) {
         this.name = name;
@@ -175,8 +175,13 @@ function deposit(user) {
     }
 }
 
-
-
+function historie(user) {
+    if (user.history.length === 0) {
+        alert("No transactions yet.");
+    } else {
+        alert(user.history.join(" - "));
+    }
+}
 
 // withdraw 
 function withdraw(user) {
@@ -202,10 +207,10 @@ function menu(user) {
 
         if (menubank === "1") {
             deposit(user);
-       } else if (menubank === "2") {
-            Withdraw(user);
+        } else if (menubank === "2") {
+            withdraw(user);
         } else if (menubank === "3") {
-            Historie(user);
+            historie(user);
         } else if (menubank === "4") {
             alert("logout successfully");
         } else {
@@ -213,7 +218,6 @@ function menu(user) {
         }
     }
 }
-
 
 
 
