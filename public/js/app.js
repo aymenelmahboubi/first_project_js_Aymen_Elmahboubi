@@ -134,3 +134,30 @@ while (user_function !== "4") {
     console.log(data_user);
 }
 
+
+function change_password() {
+    let email = prompt("enter your email")
+    let user = data_user.find(user => user.email === email)
+    if (!user) {
+        alert("email not exist, you need to register")
+        return
+    }
+    let newpassword = prompt("enter the new password")
+    let newconfirmpassword = prompt("confirm the new password")
+
+    while (newpassword.replace(/\s+/g, '').length !== newpassword.length || newpassword.length < 7 || !/[#@\-+*/]/.test(newpassword) || /\s/.test(newpassword) || newpassword !== newconfirmpassword) {
+        if (newpassword !== newconfirmpassword) {
+            alert("the password do not match")
+        } else {
+            alert("invalid password must contain at least 7 characters")
+        }
+        newpassword = prompt("enter  the new password")
+        newconfirmpassword = prompt("confirm the new password")
+    }
+
+    user.password = newpassword
+    alert("password succcessfully changed")
+    console.table(data_user)
+}
+
+
