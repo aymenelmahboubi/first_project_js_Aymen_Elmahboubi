@@ -2,7 +2,7 @@
 
 function validname(name) {
     if (name.length < 5) {
-        console.log("name is too short, you need at least 5 charachters");
+        console.log("name is too short, you need 5 charachters");
         return false;
     }
     if (/\d/.test(name)) {
@@ -15,7 +15,29 @@ function validname(name) {
     }
     return true;
 }
+function validage(age) {
+    if (!/^\d+$/.test(age)) return false;
+    if (age < 18 || age >= 100) return false;
+    return true;
+}
 
+function validemail(email) {
+    if (email.length < 10) {
+        console.log("email is too short, you need 10 charachters");
+        return false
+    }
+    if (email.includes(" ")) {
+        console.log("remove spaces");
+        return false
+    }
+    if (email.split("@").length !== 2) return false;
+
+    
+    let emailexist = data_user.find(user => user.email === email);
+    if (emailexist) return false;
+
+    return true;
+}
 
 
 let data_user = [];
@@ -35,18 +57,42 @@ function sign_up() {
     let name = prompt("enter your Name").toLocaleLowerCase().trim();
     if (!validname(name)) {
         alert("invalid name, the name should > 5 character & no number and no symbol");
-        return;
+        return
     }
 let email = prompt("enter valid Email").trim().toLocaleLowerCase()
-    if (!isValidEmail(email)) {
+    if (!validemail(email)) {
         alert("invalid email. Make sure it's correct and not already used.");
-        return;
+        return
     }
-
-
+    let age = parseInt(prompt("how old are you?").trim());
+    if (!validage(age)) {
+        alert("invalid age. Must be a number with less than 3 digits.");
+        return
+    }
+   
 
 }
-  
 
 
+let user_function = ""
+while (user_function !== "4") {
+    user_function = prompt("mar7ba biike systeme ga3ma tay7e   \n 1 - sign up \n 2 - login \n 3 - change password \n 4 - exit");
+    if (user_function === null) {
+        
+    }
+
+    if (user_function === "1") {
+        sign_up();
+    } else if (user_function === "2") {
+        login();
+    } else if (user_function === "3") {
+        change_password();
+    } else if (user_function === "4") {
+        alert("Goodbye!");
+    } else {
+        alert("enter the information");
+    }
+
+    console.log(data_user);
+}
 
