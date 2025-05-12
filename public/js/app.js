@@ -89,9 +89,27 @@ let email = prompt("enter valid Email").trim().toLocaleLowerCase()
         sign_up();
         return;
     }
-   
+    let newuser = new User(name, email, age, password);
+    data_user.push(newuser);
+    alert("welcome to bank 0dh");
 
 }
+
+function login() {
+    let email = prompt("enter your email").toLowerCase().trim()
+    let password = prompt("enter your password").trim()
+    let user = data_user.find(user => user.email === email);
+
+    if (user && user.password === password) {
+        alert("login success welcome to bank 0dh");
+        menu(user);
+    } else {
+        alert("login failed try again");
+    }
+}
+
+
+
 
 
 let user_function = ""
